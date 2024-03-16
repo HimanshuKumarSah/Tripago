@@ -157,3 +157,7 @@ def create_trip(request):
     context = {'tripgenerationform': form}
 
     return render(request, 'tripago/create-trip.html', context=context)
+
+
+def france(request):
+    return render(request, 'tripago/france.html')
