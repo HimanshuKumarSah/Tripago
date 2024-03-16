@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
@@ -8,19 +9,49 @@
 
 * {
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 html, body {
-  height: 100vh;
+  height: 100%;
   background-color: black;
 }
 
 body {
   display: grid;
   place-items: center;
+  overflow: hidden;
 }
+body::before{
+    content: "";
+    background-image: url(https://media.architecturaldigest.com/photos/5da74823d599ec0008227ea8/16:9/w_2991,h_1682,c_limit/GettyImages-946087016.jpghttps://media.architecturaldigest.com/photos/5da74823d599ec0008227ea8/16:9/w_2991,h_1682,c_limit/GettyImages-946087016.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+h1{
+    color: white;
+    position: absolute;
+    font-family: "Darker Grotesque", sans-serif;
+    font-size: 300px;
+    top: -20%;
+    left: 1%;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+h3{
+    color: white;
+    position: absolute;
+    font-family: "Darker Grotesque", sans-serif;
+    width: 900px;
+    font-size: 35px;
+    top: 35%;
+    left: 2%;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 
+}
 .page-content {
   display: grid;
   grid-gap: 1rem;
@@ -36,24 +67,27 @@ body {
 }
 @media (min-width: 800px) {
   .page-content {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(1, 5fr);
   }
 }
 
 .card {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   overflow: hidden;
-  width: 100%;
+  /* padding: 1rem; */
+  left: 100%;
+  width: 140%;
   text-align: center;
   color: whitesmoke;
   background-color: black;
+  border-radius: 20px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 600px) {
   .card {
-    height: 100vh;
+    height: 220px;
   }
 }
 .card:before {
@@ -82,19 +116,16 @@ body {
   transition: transform calc(var(--d) * 2) var(--e);
 }
 .card:nth-child(1):before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Eiffel_Tower_Vertical.JPG/1200px-Eiffel_Tower_Vertical.JPG);
+  background-image: url(https://upgradedpoints.com/wp-content/uploads/2018/06/shutterstock_654670291.jpg?auto=webp&disable=upscale&width=1200);
 }
 .card:nth-child(2):before {
-  background-image: url(https://hips.hearstapps.com/hmg-prod/images/spain-holiday-destinations-lead-girona-pol-albarra-n-1675292136.jpg?crop=0.865518845974872xw:1xh;center,top&resize=1200:*);
+  background-image: url(https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg);
 }
 .card:nth-child(3):before {
-  background-image: url(https://www.commonwealthfund.org/sites/default/files/styles/countries_hero_desktop/public/country_image_UnitedStates.jpg?h=c66730b1&itok=jVvG3099);
+  background-image: url(https://fullsuitcase.com/wp-content/uploads/2022/05/One-day-in-New-York-USA-NYC-day-trip-itinerary.jpg);
 }
 .card:nth-child(4):before {
-  background-image: url(https://timesofindia.indiatimes.com/photo/96685692/96685692.jpg);
-}
-.card:nth-child(5):before {
-    background-image: url(https://www.hindustantimes.com/ht-img/img/2023/11/02/900x1600/thailand_pics_1698908219314_1698908233102.jpg);
+  background-image: url(https://static.toiimg.com/thumb/msid-101282760,width-1280,height-720,resizemode-4/101282760.jpg);
 }
 
 
@@ -103,7 +134,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 300%;
   /* padding: 1rem; */
   transition: transform var(--d) var(--e);
   z-index: 1;
@@ -113,12 +144,15 @@ body {
   font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.2;
+  color: whitesmoke;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+
 }
 
 .copy {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.35;
 }
 
@@ -184,56 +218,4 @@ body {
 .card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
   }
-}
-
-.but{
-  width: 130px;
-  height: 50px;
-  background: white;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: black;
-  font-weight: 600;
-  position: absolute;
-  top: 2.5%;
-  left: 92%;
-  z-index: 1;
-}
-.bn{
-  width: 150px;
-  height: 50px;
-  background: white;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: black;
-  font-weight: 600;
-  position: absolute;
-  top: 2.5%;
-  left: 1%;
-  z-index: 1;
-}
-.bnt{
-  width: 150px;
-  height: 50px;
-  background: white;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: black;
-  font-weight: 600;
-  position: absolute;
-  top: 2.5%;
-  left: 9.5%;
-  z-index: 1;
 }

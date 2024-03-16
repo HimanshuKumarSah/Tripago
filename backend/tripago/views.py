@@ -170,3 +170,15 @@ def hermes_ai(request):
 
 def france(request):
     return render(request, 'tripago/france.html')
+
+def spain(request):
+    return render(request, 'tripago/spain.html')
+
+def usa(request):
+    return render(request, 'tripago/usa.html')
+
+def switzerland(request):
+    return render(request, 'tripago/switzerland.html')
+
+def thailand(request):
+    return render(request, 'tripago/thailand.html')
