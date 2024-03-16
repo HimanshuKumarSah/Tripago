@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.forms.widgets import PasswordInput, TextInput
 
-# Register a user
+# register a user
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
@@ -15,7 +15,50 @@ class CreateUserForm(UserCreationForm):
                   'password2'
                   ]
         
-# Authenticate a user
+# authenticate a user
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
-    password = forms.CharField(widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+    username = forms.CharField(widget=TextInput())
+    password = forms.CharField(widget=PasswordInput())
+
+
+# create an itinerary
+class ItineraryGenerationForm(forms.Form):
+    city = forms.CharField(widget=TextInput())
+    country = forms.CharField(widget=TextInput())
+
+# create a trip
+class TripGenerationForm(forms.Form):
+    destination = forms.CharField(widget=TextInput())
+    budget = forms.DecimalField(max_digits=10, decimal_places=2)
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    
+    # how to reach destination
+    mode_of_arrival = forms.ChoiceField(widget=forms.Select, choices=[('Flight', 'Flight'), 
+                                                                      ('Train', 'Train'), 
+                                                                      ('Bus', 'Bus'), 
+                                                                      ('Car', 'Car'), 
+                                                                      ('Boat', 'Boat'), 
+                                                                      ('Other', 'Other')])
+    
+    stay_preference = forms.ChoiceField(widget=forms.Select, choices=[('Hotel', 'Hotel'),
+                                                                      ('Hostel', 'Hostel'),
+                                                                      ('Airbnb', 'Airbnb'),
+                                                                      ('Other', 'Other')])
+    
+    activity_preference = forms.ChoiceField(widget=forms.Select, choices=[('Sightseeing', 'Sightseeing'),
+                                                                          ('Adventure', 'Adventure'),
+                                                                          ('Relaxation', 'Relaxation'),
+                                                                          ('Business', 'Business'),
+                                                                          ('Other', 'Other')])
+    group_size = forms.IntegerField()
+    
+    # how to travel at destination
+    mode_of_transport = forms.ChoiceField(widget=forms.Select, choices=[('Flight', 'Flight'),
+                                                                        ('Train', 'Train'),
+                                                                        ('Bus', 'Bus'),
+                                                                        ('Car', 'Car'),
+                                                                        ('Boat', 'Boat'),
+                                                                        ('Bike', 'Bike'),
+                                                                        ('Walk', 'Walk'),
+                                                                        ('Other', 'Other')])

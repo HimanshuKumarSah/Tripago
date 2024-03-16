@@ -1,5 +1,13 @@
+{% load static %}
+
 <html>
-    <h1>Homepage</h1>
-    <a href="{% url 'login' %}">Log In</a>
-    <a href="{% url 'register' %}">Sign Up</a>
+    <head>
+        <title>Homepage</title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+    <body>
+        <h1>Homepage</h1>
+        <a href="login.html">Log In</a>
+        <a href="register.html">Sign Up</a>
+    </body>
 </html>

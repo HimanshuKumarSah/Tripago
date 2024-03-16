@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from . forms import CreateUserForm, LoginForm
+from . forms import CreateUserForm, LoginForm, ItineraryGenerationForm, TripGenerationForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from . prompt import createTripPrompt
 
 # authentication models and functions
 from django.contrib.auth.models import auth
@@ -15,36 +17,52 @@ def register(request):
     form = CreateUserForm()
     
     if request.method == "POST":
-        form = CreateUserForm(request.POST)
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        form = CreateUserForm(data = {
+            'first_name': first_name,
+            'last_name': last_name,
+            'username': username,
+            'email': email,
+            'password1': password1,
+            'password2': password2
+        })
+
         if form.is_valid():
             form.save()
 
             return redirect('login')
-    
-    context = {'registerform': form}
 
-    return render(request, 'tripago/register.html', context=context)
+    return render(request, 'tripago/register.html')
 
 
 def login(request):
     form = LoginForm()
 
     if request.method == "POST":
-        form = LoginForm(request, data=request.POST)
-        if form.is_valid():
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
+        form = LoginForm(request, data={
+            'username': username,
+            'password': password
+        
+        })
+
+        if form.is_valid():
             user = authenticate(request, username=username, password=password)
 
             if user is not None:
                 auth.login(request, user)
 
                 return redirect('dashboard')
-    
-    context = {'loginform': form}
 
-    return render(request, 'tripago/login.html', context=context)
+    return render(request, 'tripago/login.html')
 
 
 @login_required(login_url='login')
@@ -55,3 +73,61 @@ def dashboard(request):
 def logout(request):
     auth.logout(request)
     return redirect("")
+
+
+def create_itinerary(request):
+    form = ItineraryGenerationForm()
+
+    if request.method == "POST":
+        city = request.POST.get('city')
+        country = request.POST.get('country')
+
+        form = ItineraryGenerationForm(data={
+            'city': city, 
+            'country': country
+        })
+
+        return HttpResponse(f"Your itinerary for {city} in {country} has been created successfully!")
+
+    return render(request, 'tripago/create-itinerary.html')
+
+def create_trip(request):
+    form = TripGenerationForm()
+
+    if request.method == "POST":
+        destination = request.POST.get('destination')
+        budget = request.POST.get('budget')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+        mode_of_arrival = request.POST.get('mode_of_arrival')
+        stay_preference = request.POST.get('stay_preference')
+        activity_preference = request.POST.get('activity_preference')
+        group_size = request.POST.get('group_size')
+        mode_of_transport = request.POST.get('mode_of_transport')
+
+        data = {
+            'destination': destination,
+            'budget': budget,
+            'start_date': start_date,
+            'end_date': end_date,
+            'mode_of_arrival': mode_of_arrival,
+            'stay_preference': stay_preference,
+            'activity_preference': activity_preference,
+            'group_size': group_size,
+            'mode_of_transport': mode_of_transport
+        }
+
+        form = TripGenerationForm(data=data)
+
+        print("FUCK")
+        if form.is_valid():
+            print("NO FUCK")
+            prompt = createTripPrompt(data)
+            with open('tripago/prompt.txt', 'w') as f:
+                f.write(prompt)
+            return HttpResponse("Trip Created")
+
+
+    context = {'tripgenerationform': form}
+
+    return render(request, 'tripago/create-trip.html', context=context)
