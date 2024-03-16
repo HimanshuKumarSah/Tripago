@@ -1,70 +1,67 @@
-
+{% load static %}
 <html>
     <head>
         <title>Generate Trip Itinerary</title>
+        <link rel="stylesheet" href="{% static 'css/itineary.css' %}">
     </head>
     <body>
         <h1>Generate Trip Itinerary</h1>
-        
-        <form method="POST">
-            {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="start_location">Start Location:</label>
-                <input type="text" id="start_location" name="start_location" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="destination">Destination:</label>
-                <input type="text" id="destination" name="destination" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="budget">Budget:</label>
-                <input type="number" id="budget" name="budget" step="0.01" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="start_date">Start Date:</label>
-                <input type="date" id="start_date" name="start_date" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="end_date">End Date:</label>
-                <input type="date" id="end_date" name="end_date" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="group_size">Group Size:</label>
-                <input type="number" id="group_size" name="group_size" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="mode_of_arrival">Mode of Arrival:</label>
-                <input type="text" id="mode_of_arrival" name="mode_of_arrival" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="mode_of_transport">Mode of Transport:</label>
-                <input type="text" id="mode_of_transport" name="mode_of_transport" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="accommodation">Accommodation:</label>
-                <input type="text" id="accommodation" name="accommodation" required><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="activities">Activities:</label>
-                <textarea id="activities" name="activities" rows="4" cols="50" required></textarea><br>
-            </div>
-            
-            <div class="form-group">
-                <label for="extra_info">Extra Information:</label>
-                <textarea id="extra_info" name="extra_info" rows="4" cols="50" required></textarea><br>
-            </div>
-            
-            <input type="submit" value="Generate Itinerary">
-        </form>
+        <div class="wrapper">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <h1>Register</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Start Location" name="start_location" required>
+                    <i class='bx bx-child' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Destination" name="destination" required>
+                    <i class='bx bx-child' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Budget" name="budget" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="date" placeholder="Start Date" name="start_date" required>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="date" placeholder="End Date" name="end_date" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder="Group Size" name="group_size" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Mode of Arrival" name="mode_of_arrival" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Mode of Transport" name="mode_of_transport" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Accommodation" name="accommodation" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Activities" name="activities" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Extra Information" name="extra_info" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <input type="submit" class="btn" value="Generate Itinerary">Register</input>
+    
+                <div class="register-link">
+                    <p>Already have an account? 
+                        <a href="login.html">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
     </body>
 </html>
