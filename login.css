@@ -12,9 +12,17 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(https://www.jetsetter.com//uploads/sites/7/2018/04/s0i_qgfG-1380x690.jpeg);
+}
+body::before{
+    content: "";
+    background-image: url(https://www.jetsetter.com//uploads/sites/7/2018/04/s0i_qgfG-1380x690.jpeg);
     background-size: cover;
-    background-position: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
 }
 .wrapper{
     width: 420px;
