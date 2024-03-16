@@ -8,6 +8,10 @@
             {% csrf_token %}
 
             <div class="form-group">
+                <label for="start_location">Start Location:</label>
+                <input type="text" name="start_location" required>
+            </div>
+            <div class="form-group">
                 <label for="destination">Destination:</label>
                 <input type="text" name="destination" required>
             </div>

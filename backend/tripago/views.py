@@ -95,6 +95,7 @@ def create_trip(request):
     form = TripGenerationForm()
 
     if request.method == "POST":
+        start_location = request.POST.get('start_location')
         destination = request.POST.get('destination')
         budget = request.POST.get('budget')
         start_date = request.POST.get('start_date')
@@ -106,6 +107,7 @@ def create_trip(request):
         mode_of_transport = request.POST.get('mode_of_transport')
 
         data = {
+            'start_location': start_location,
             'destination': destination,
             'budget': budget,
             'start_date': start_date,
@@ -119,9 +121,7 @@ def create_trip(request):
 
         form = TripGenerationForm(data=data)
 
-        print("FUCK")
         if form.is_valid():
-            print("NO FUCK")
             prompt = createTripPrompt(data)
             with open('tripago/prompt.txt', 'w') as f:
                 f.write(prompt)
