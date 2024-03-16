@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from . forms import CreateUserForm, LoginForm, ItineraryGenerationForm, TripGenerationForm
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from . prompt import createTripPrompt, createItineraryPrompt
+from django.http import HttpResponse, JsonResponse
+from . prompt import createTripPrompt, createItineraryPrompt, getHermesAIResponse
 
 # authentication models and functions
 from django.contrib.auth.models import auth
@@ -157,6 +157,15 @@ def create_trip(request):
     context = {'tripgenerationform': form}
 
     return render(request, 'tripago/create-trip.html', context=context)
+
+
+def hermes_ai(request):
+    if request.method == "POST":
+        prompt = request.POST.get('chat-prompt')
+        answer = getHermesAIResponse(prompt)
+        return JsonResponse({'answer': answer})
+
+    return render(request, 'tripago/hermes-ai.html')
 
 
 def france(request):
