@@ -25,3 +25,40 @@ class LoginForm(AuthenticationForm):
 class ItineraryGenerationForm(forms.Form):
     city = forms.CharField(widget=TextInput())
     country = forms.CharField(widget=TextInput())
+
+# create a trip
+class TripGenerationForm(forms.Form):
+    destination = forms.CharField(widget=TextInput())
+    budget = forms.DecimalField(max_digits=10, decimal_places=2)
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    
+    # how to reach destination
+    mode_of_arrival = forms.ChoiceField(widget=forms.Select, choices=[('Flight', 'Flight'), 
+                                                                      ('Train', 'Train'), 
+                                                                      ('Bus', 'Bus'), 
+                                                                      ('Car', 'Car'), 
+                                                                      ('Boat', 'Boat'), 
+                                                                      ('Other', 'Other')])
+    
+    stay_preference = forms.ChoiceField(widget=forms.Select, choices=[('Hotel', 'Hotel'),
+                                                                      ('Hostel', 'Hostel'),
+                                                                      ('Airbnb', 'Airbnb'),
+                                                                      ('Other', 'Other')])
+    
+    activity_preference = forms.ChoiceField(widget=forms.Select, choices=[('Sightseeing', 'Sightseeing'),
+                                                                          ('Adventure', 'Adventure'),
+                                                                          ('Relaxation', 'Relaxation'),
+                                                                          ('Business', 'Business'),
+                                                                          ('Other', 'Other')])
+    group_size = forms.IntegerField()
+    
+    # how to travel at destination
+    mode_of_transport = forms.ChoiceField(widget=forms.Select, choices=[('Flight', 'Flight'),
+                                                                        ('Train', 'Train'),
+                                                                        ('Bus', 'Bus'),
+                                                                        ('Car', 'Car'),
+                                                                        ('Boat', 'Boat'),
+                                                                        ('Bike', 'Bike'),
+                                                                        ('Walk', 'Walk'),
+                                                                        ('Other', 'Other')])
