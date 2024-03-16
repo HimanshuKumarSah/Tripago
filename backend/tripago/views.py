@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from . forms import CreateUserForm, LoginForm, ItineraryGenerationForm, TripGenerationForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from . prompt import createTripPrompt
+from . prompt import createTripPrompt, createItineraryPrompt
 
 # authentication models and functions
 from django.contrib.auth.models import auth
@@ -79,15 +79,41 @@ def create_itinerary(request):
     form = ItineraryGenerationForm()
 
     if request.method == "POST":
-        city = request.POST.get('city')
-        country = request.POST.get('country')
+        start_location = request.POST.get('start_location')
+        destination = request.POST.get('destination')
+        budget = request.POST.get('budget')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+        group_size = request.POST.get('group_size')
+        mode_of_arrival = request.POST.get('mode_of_arrival')
+        mode_of_transport = request.POST.get('mode_of_transport')
+        accommodation = request.POST.get('accommodation')
+        activities = request.POST.get('activities')
+        extra_info = request.POST.get('extra_info')
 
-        form = ItineraryGenerationForm(data={
-            'city': city, 
-            'country': country
-        })
+        data = {
+            'start_location': start_location,
+            'destination': destination,
+            'budget': budget,
+            'start_date': start_date,
+            'end_date': end_date,
+            'group_size': group_size,
+            'mode_of_arrival': mode_of_arrival,
+            'mode_of_transport': mode_of_transport,
+            'accommodation': accommodation,
+            'activities': ", ".join(activities.split('\r\n')),
+            'extra_info': extra_info
+        }
 
-        return HttpResponse(f"Your itinerary for {city} in {country} has been created successfully!")
+        form = ItineraryGenerationForm(data=data)
+
+        if form.is_valid():
+            prompt = createItineraryPrompt(data)
+            with open('tripago/itinerary_prompt.txt', 'w') as f:
+                f.write(prompt)
+            return HttpResponse("Itinerary Created")
+        
+        return HttpResponse("Invalid Form")
 
     return render(request, 'tripago/create-itinerary.html')
 
@@ -123,7 +149,7 @@ def create_trip(request):
 
         if form.is_valid():
             prompt = createTripPrompt(data)
-            with open('tripago/prompt.txt', 'w') as f:
+            with open('tripago/trip_prompt.txt', 'w') as f:
                 f.write(prompt)
             return HttpResponse("Trip Created")
 
