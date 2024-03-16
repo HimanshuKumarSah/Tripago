@@ -11,4 +11,5 @@ urlpatterns = [
     path('france.html', views.france, name="france"),
     path('create-itinerary.html', views.create_itinerary, name="create-itinerary"),
     path('create-trip.html', views.create_trip, name="create-trip"),
+    path('hermes-ai.html', views.hermes_ai, name="hermes-ai"),
 ]
