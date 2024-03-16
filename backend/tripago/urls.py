@@ -9,6 +9,7 @@ urlpatterns = [
     path('dashboard.html', views.dashboard, name="dashboard"),
     path('logout.html', views.logout, name="logout"),
     path('france.html', views.france, name="france"),
+    path('spain.html', views.spain, name='spain'),
     path('create-itinerary.html', views.create_itinerary, name="create-itinerary"),
     path('create-trip.html', views.create_trip, name="create-trip"),
 ]

@@ -161,3 +161,7 @@ def create_trip(request):
 
 def france(request):
     return render(request, 'tripago/france.html')
+
+def spain(request):
+    return render(request, 'tripago/spain.html')
+
