@@ -1,0 +1,21 @@
+
+<html>
+    <head>
+        <title>Generate Trip Itinerary</title>
+    </head>
+    <body>
+        <h1>Generate Trip Itinerary</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="city" style="font-size: 200px;">City:</label>
+            <input type="text" id="city" name="city" required><br>
+
+            <label for="country" style="font-size: 100px;">Country:</label>
+            <input type="text" id="country" name="country" required>
+            
+            <input type="submit" value="Generate Itinerary">
+        </form>
+    </body>
+</html>
