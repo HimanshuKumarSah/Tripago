@@ -167,3 +167,6 @@ def spain(request):
 
 def usa(request):
     return render(request, 'tripago/usa.html')
+
+def switzerland(request):
+    return render(request, 'tripago/switzerland.html')

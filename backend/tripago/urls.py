@@ -11,6 +11,7 @@ urlpatterns = [
     path('france.html', views.france, name="france"),
     path('spain.html', views.spain, name='spain'),
     path('usa.html', views.usa, name="usa"),
+    path('switzerland.html', views.switzerland, name="switzerland"),
     path('create-itinerary.html', views.create_itinerary, name="create-itinerary"),
     path('create-trip.html', views.create_trip, name="create-trip"),
 ]
