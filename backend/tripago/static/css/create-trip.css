@@ -17,14 +17,14 @@ body{
 }
 body::before{
     content: "";
-    background-image: url(https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2023/11/29111159/lauterbrunnen.jpeg);
+    background-image: url(https://www.holidaymonk.com/wp-content/uploads/2021/07/Darjeeling.jpg);
     background-size: cover;
     position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.7;
+    opacity: 1;
 }
 .wrapper{
     width: 1000px;
