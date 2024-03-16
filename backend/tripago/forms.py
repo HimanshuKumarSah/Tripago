@@ -23,8 +23,17 @@ class LoginForm(AuthenticationForm):
 
 # create an itinerary
 class ItineraryGenerationForm(forms.Form):
-    city = forms.CharField(widget=TextInput())
-    country = forms.CharField(widget=TextInput())
+    start_location = forms.CharField(widget=TextInput())
+    destination = forms.CharField(widget=TextInput())
+    budget = forms.DecimalField(max_digits=10, decimal_places=2)
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    group_size = forms.IntegerField()
+    mode_of_arrival = forms.CharField(widget=TextInput())
+    mode_of_transport = forms.CharField(widget=TextInput())
+    accommodation = forms.CharField(widget=TextInput())
+    activities = forms.CharField(widget=forms.Textarea())
+    extra_info = forms.CharField(widget=forms.Textarea())
 
 # create a trip
 class TripGenerationForm(forms.Form):
