@@ -237,3 +237,20 @@ body {
   left: 9.5%;
   z-index: 1;
 }
+.bntt{
+  width: 150px;
+  height: 50px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  position: absolute;
+  top: 2.5%;
+  left: 18%;
+  z-index: 1;
+}
