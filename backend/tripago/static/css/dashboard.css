@@ -184,3 +184,21 @@ body {
     transition-duration: 0s;
   }
 }
+
+.btn1{
+  width: 130px;
+  height: 50px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  position: absolute;
+  top: 2.5%;
+  left: 92%;
+  z-index: 1;
+}
