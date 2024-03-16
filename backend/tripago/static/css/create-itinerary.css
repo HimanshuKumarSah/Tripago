@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     box-sizing: border-box;
     font-family: "Darker Grotesque", sans-serif;;
 }
@@ -26,7 +26,7 @@ body::before{
     opacity: 0.7;
 }
 .wrapper{
-    width: 420px;
+    width: 1000px;
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
@@ -34,6 +34,7 @@ body::before{
     color: white;
     border-radius: 10px;
     padding: 30px 40px;
+    position: absolute;
 }
 
 .wrapper h1{
@@ -45,7 +46,7 @@ body::before{
     position: relative;
     width: 100%;
     height: 50px;
-    margin: 30px 0;
+    margin: 10px 0;
 }
 
 .input-box input{
@@ -58,7 +59,7 @@ body::before{
     border-radius: 40px;
     font-size: 20px;
     color: white;
-    padding: 20px 45px 20px 20px;
+    padding: 10px 45px 0px 20px;
 }
 
 .input-box input::placeholder{
@@ -98,21 +99,4 @@ body::before{
     font-size: 16px;
     color: black;
     font-weight: 600;
-}
-
-.wrapper .register-link{
-    font-size: 25px;
-    text-align: center;
-    margin: 20px 0 15px;
-}
-
-.register-link p a{
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 25px;
-}
-
-.register-link p a:hover{
-    text-decoration: underline;
 }
