@@ -28,6 +28,7 @@ class ItineraryGenerationForm(forms.Form):
 
 # create a trip
 class TripGenerationForm(forms.Form):
+    start_location = forms.CharField(widget=TextInput())
     destination = forms.CharField(widget=TextInput())
     budget = forms.DecimalField(max_digits=10, decimal_places=2)
     start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))

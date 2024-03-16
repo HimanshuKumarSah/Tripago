@@ -2,14 +2,15 @@ Imagine you are a travel guide. You have been tasked with suggesting a trip plan
 tell you their preferences and constraints and you will suggest a trip itinerary for them. The format of this itinerary is shared 
 after the details given by the group.
 
+Start Location: Delhi
 Destination: Pondicherry
 Budget: 15000
-Start Date: 2024-04-05
-End Date: 2024-04-13
-Mode of Arrival: Train
-Stay Preference: Hostel
-Activity Preference: Other
-Group Size: 2
+Start Date: 2024-03-20
+End Date: 2024-03-22
+Mode of Arrival: Flight
+Stay Preference: Hotel
+Activity Preference: Adventure
+Group Size: 1
 Mode of Transport: Walk
 
 Mode of arrival is how the group will reach the destination and mode of transport is how the group plans on travelling around the

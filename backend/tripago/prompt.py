@@ -3,6 +3,7 @@ def createTripPrompt(prompt_inputs):
 tell you their preferences and constraints and you will suggest a trip itinerary for them. The format of this itinerary is shared 
 after the details given by the group.
 
+Start Location: {prompt_inputs['start_location']}
 Destination: {prompt_inputs['destination']}
 Budget: {prompt_inputs['budget']}
 Start Date: {prompt_inputs['start_date']}
