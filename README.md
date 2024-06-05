@@ -7,7 +7,7 @@
  - AI Chatbot
 with an account basis style, so you can create an account, login and logout.
  
- **Tech Stack
+ **Tech Stack**
  - HTML
  - CSS
  - JS
